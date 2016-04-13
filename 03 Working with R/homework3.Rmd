@@ -17,28 +17,48 @@ No Rchunk is needed to accomplish this.
 Read in the homework3.csv data. For each of the following steps you
 should preface your R commands with some plain English explanation.
 -->
-
+The first step is to read in the data.
+dat<-read.csv("homework3.csv")
 
 
 <!--
 Check the structure of the data.
 -->
+The next step is to check out the structure
+str(dat)
 
+As we can see dat is a data frame with three variables: major,
+conservatism and year in school.
 
 
 <!--
 Find the mean, median, and standard deviation using the sd() function
 for the overall level of conservatism.
 -->
+Now we'll find some basic summary statistics including the
+mean, median, and standard deviation for the overall level of conservatism.
 
+mean(dat$conservatism)
+median(dat$conservatism)
+sd(dat$conservatism)
 
+From the previous analyses, we can see that the mean level of
+conservatism is 52.29, the median is 53.83, and the standard deviation is 19.75.
 
 <!--
 Find the mean level of support for freshmen only.
 -->
+Now, let's see what the mean level of support is for freshmen only.
 
+mean(dat$conservatism[dat$year=="freshman"])
 
+Here we can see that the mean for freshman is 47.50.
 
 <!--
-Find the mean level of support for male business students only.
--->
+Find the mean level of conservatism for sophomore business students only.
+--> 
+ Lastly, lets see what the mean level of support is for sophmore business students. 
+ 
+mean(dat$conservatism[dat$year=="sophomore"]&dat$major=="business") 
+
+Here we can see that the mean for sophmore business students is 0.6. 
