@@ -125,7 +125,7 @@ Set the working directory.
 No Rchunk is needed to accomplish this.
 -->
 <p>The first step is to read in the data.</p>
-<pre class="r"><code>dat&lt;-read.csv(&quot;example4.csv&quot;)</code></pre>
+<pre class="r"><code>dat&lt;-read.csv(&quot;homework4.csv&quot;)</code></pre>
 <!--
 Read in the homework4.csv data. For each of the following steps you
 should preface your R commands with some plain English explanation.
@@ -135,20 +135,20 @@ Check the structure of the data.
 -->
 <p>The next step is to check out the structure</p>
 <pre class="r"><code>str(dat)</code></pre>
-<pre><code>## 'data.frame':    60 obs. of  2 variables:
-##  $ major : Factor w/ 2 levels &quot;engineering&quot;,..: 1 2 1 2 1 2 1 2 1 2 ...
-##  $ gender: Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 1 1 1 1 1 1 1 1 2 1 ...</code></pre>
-<p>As we can see dat is a data frame with two variables: gender and major.</p>
+<pre><code>## 'data.frame':    80 obs. of  2 variables:
+##  $ condition: Factor w/ 2 levels &quot;control&quot;,&quot;experimental&quot;: 2 1 2 1 2 1 2 1 2 1 ...
+##  $ agreement: Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 1 1 2 2 1 1 2 2 1 2 ...</code></pre>
+<p>As we can see dat is a data frame with two variables: condition and agreement.</p>
 <!--
 Create a table that shows how many people fell into each category.
 -->
 <p>Now I’ll create a table that shows how many people fell into each category.</p>
-<pre class="r"><code>table(dat$major, dat$gender)</code></pre>
-<pre><code>##              
-##               female male
-##   engineering     11   19
-##   psychology      18   12</code></pre>
-<p>From examining the table, it appears that there might more female psych students and more male engineering students.</p>
+<pre class="r"><code>table(dat$condition, dat$agreement)</code></pre>
+<pre><code>##               
+##                no yes
+##   control      20  20
+##   experimental 14  26</code></pre>
+<p>From examining the table, it appears that there might more individuals in the experiemental condition in agreement than in the control control.</p>
 <!--
 Perform a chi-square test to determine whether or not the experimental
 conditions and agreement with a statement are independent or related.
@@ -157,14 +157,14 @@ statement that supports your interpretation. As there's no way to
 insert the chi-square symbol, you can just use chi-square instead
 (see example4.Rmd).
 -->
-<p>To determine if the data support the appearance of a relationship between gender and major, I performed a chi-square test.</p>
-<pre class="r"><code>chisq.test(dat$major,dat$gender)</code></pre>
+<p>To determine if the data support the appearance of a relationship between condition and agreement, I performed a chi-square test.</p>
+<pre class="r"><code>chisq.test(dat$condition,dat$agreement)</code></pre>
 <pre><code>## 
 ##  Pearson's Chi-squared test with Yates' continuity correction
 ## 
-## data:  dat$major and dat$gender
-## X-squared = 2.4027, df = 1, p-value = 0.1211</code></pre>
-<p>According to the results of the chi-square test, major and gender are independent of one another Chi-square(1) = 2.4, p = .12.</p>
+## data:  dat$condition and dat$agreement
+## X-squared = 1.2788, df = 1, p-value = 0.2581</code></pre>
+<p>According to the results of the chi-square test,condition and agreement are independent of one another Chi-square(1) = 1.28, p = .26.</p>
 </div>
 
 

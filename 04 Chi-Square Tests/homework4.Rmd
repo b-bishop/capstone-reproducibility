@@ -15,14 +15,12 @@ No Rchunk is needed to accomplish this.
 The first step is to read in the data.
 
 ```{r}
-dat<-read.csv("example4.csv")
+dat<-read.csv("homework4.csv")
 ```
 <!--
 Read in the homework4.csv data. For each of the following steps you
 should preface your R commands with some plain English explanation.
 -->
-
-
 
 <!--
 Check the structure of the data.
@@ -34,7 +32,7 @@ The next step is to check out the structure
 str(dat)
 ```
 
-As we can see dat is a data frame with two variables: gender and major.
+As we can see dat is a data frame with two variables: condition and agreement.
 
 <!--
 Create a table that shows how many people fell into each category.
@@ -44,11 +42,10 @@ Now I'll create a table that shows how many people fell into each
 category.
 
 ```{r}
-table(dat$major, dat$gender)
+table(dat$condition, dat$agreement)
 ```
 
-From examining the table, it appears that there might more female
-psych students and more male engineering students.
+From examining the table, it appears that there might more individuals in the experiemental condition in agreement than in the control control.
 
 
 
@@ -62,12 +59,12 @@ insert the chi-square symbol, you can just use chi-square instead
 -->
 
 To determine if the data support the appearance of a relationship
-between gender and major, I performed a chi-square test.
+between condition and agreement, I performed a chi-square test.
 
 ```{r}
-chisq.test(dat$major,dat$gender)
+chisq.test(dat$condition,dat$agreement)
 ```
 
-According to the results of the chi-square test, major and gender
-are independent of one another Chi-square(1) = 2.4, p = .12.
+According to the results of the chi-square test,condition and agreement
+are independent of one another Chi-square(1) = 1.28, p = .26.
 
