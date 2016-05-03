@@ -282,7 +282,7 @@ summary(aov(percent~position*distractor+
             data=dat))
 ```
 
-From our anlyses, we can see that individuals without distracting
+From our analyses, we can see that individuals without distracting
 tasks performed better than those who had, F(1,22) = 4.6, p = .0429.
 Additionally, participants generally performed better on the words
 at the beginning and ends of the lists, F(9,198) = 63.3, p < .05.
